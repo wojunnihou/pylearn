@@ -6,6 +6,7 @@ python准备阶段
    :caption: Contents:
 
    install
+   hello-world
    virtualenv
    shell
    pypi
