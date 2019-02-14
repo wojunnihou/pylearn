@@ -1,5 +1,5 @@
 python准备阶段
-=============
+===============
 
 .. toctree::
    :maxdepth: 1
@@ -8,5 +8,6 @@ python准备阶段
    install
    virtualenv
    shell
+   pypi
    pycharm
 
