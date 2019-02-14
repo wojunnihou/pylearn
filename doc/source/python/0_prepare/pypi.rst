@@ -2,6 +2,7 @@ pypi
 =========
 
     `官网 <https://pypi.org/>`_
+    `pip官网手册 <https://pip.pypa.io/en/stable/user_guide/>`_
 
     软件开发过程中一些代码通用，比如通讯、数据爬取、建网站等等；为了大量减少开发工作量，因此开源社区中很多开源项目都在github等开源代码
     平台开放自己代码.python开源代码都会根据自己都开发进度到一定时间点会打包成一个代码集合（包）；放到这个平台供所有人使用。不同语言有不同的开源包管
@@ -137,6 +138,12 @@ pypi
 
         pip list -o
 
+    过期包列表
+
+    .. code-block:: bash
+
+        pip list --outdated
+
 导出项目依赖包到requirements.txt中
 ---------------------------------------
 
@@ -144,3 +151,17 @@ pypi
 
         pip freeze > requirements.txt
 
+pip命令自动补齐
+------------------------
+
+    bash
+
+    .. code-block:: bash
+
+        pip completion --bash >> ~/.profile
+
+    zsh
+
+    .. code-block:: bash
+
+        pip completion --zsh >> ~/.zprofile
