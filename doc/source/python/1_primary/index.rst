@@ -1,8 +1,14 @@
 基础知识
-=======
+================
 
-* 数据类型
-* 注释
-* 程序结构语法
-* 基本语法
-* 函数
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Contents:
+
+   datatype
+   build_func
+   operator
+   statements-control-flow
+   note-docstring
+   function
