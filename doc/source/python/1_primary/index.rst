@@ -12,3 +12,4 @@
    statements-control-flow
    note-docstring
    function
+   string
