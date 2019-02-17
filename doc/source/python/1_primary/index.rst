@@ -6,6 +6,8 @@
    :maxdepth: 1
    :caption: Contents:
 
+
+   grammer
    datatype
    build_func
    operator

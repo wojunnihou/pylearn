@@ -6,10 +6,10 @@
 数字型
 --------
 
-    . int
-    . long
-    . float
-    . complex
+    * int
+    * long
+    * float
+    * complex
 
     由于计算机存储浮点数会造成精度损失，为了准确的存储一个常用有限小数，python内置了decimal
 
