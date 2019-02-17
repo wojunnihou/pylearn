@@ -37,6 +37,7 @@
    tools/index
    devops/index
    design/index
+   website-collection
 
 
 contribute
