@@ -38,6 +38,9 @@ pypi
         index-url=https://mirrors.aliyun.com/pypi/simple/
         format=columns
 
+    window配置如下图所示
+
+    .. image:: window-pypi-ini.png
 
 安装三方包
 ----------
