@@ -1,7 +1,7 @@
 .. python学习文档
 
-欢迎使用python学习文档
-=================================
+欢迎使用python学习文档 `(github) <https://github.com/wojunnihou/pylearn>`_
+===========================================================================
 
 绪论
 =================================
@@ -34,9 +34,10 @@
    bigdata/index
    iot/index
    autotest/index
-   tools/index
    devops/index
    design/index
+
+   tools/index
    website-collection
 
 
