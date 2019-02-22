@@ -9,3 +9,5 @@
     * dir
     * help
     * type
+    * range
+    * enumerate

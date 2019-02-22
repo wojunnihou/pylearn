@@ -15,3 +15,4 @@
    note-docstring
    function
    string
+   keywords
