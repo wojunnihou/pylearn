@@ -22,3 +22,6 @@ async/await
 
 break
 -----------
+
+class
+----------
