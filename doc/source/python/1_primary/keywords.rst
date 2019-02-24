@@ -20,9 +20,11 @@ None
         True
         True
 
-
-False/True
+True/False
 ------------
+
+    布尔值只有两个值：True,False或者直接用1，0表示真或假
+
 
 or/and/not
 ------------
@@ -49,7 +51,7 @@ pass
 ------------
 
 break/continue
------------
+---------------------
 
 def/return
 ---------------

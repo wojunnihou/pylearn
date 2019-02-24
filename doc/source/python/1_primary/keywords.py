@@ -1,5 +1,3 @@
-# 学习None
-
 def no_return():
     """
     这个函数没有使用return语句返回值
