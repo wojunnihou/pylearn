@@ -7,27 +7,79 @@
 None
 ------------
 
+    表示空 ，函数么有return的时候返回结果为None，判断是否为none需要用is，例如:
+
+    .. literalinclude:: keywords.py
+        :start-after: def no_return()
+        :end-before: print(a is None)
+
+    运行结果::
+
+        2
+        None
+        True
+        True
+
 
 False/True
 ------------
 
-with/as
+or/and/not
+------------
+
+in
+-----------------------------
+
+is
+-----------------------------
+
+del
+------------
+
+if/elif/else
+-----------------
+
+for/in/else
+----------------------------
+
+while/else
+------------------
+
+pass
+------------
+
+break/continue
 -----------
 
-assert
-----------
+def/return
+---------------
 
-async/await
--------------
-
-break
------------
+lambda
+----------------------------
 
 class
 ----------
 
-continue
+from/import/as
+------------------------------
+
+try/except/else/finally/raise
+-----------------------------------
+
+assert
+----------
+
+yield/yield from
 ------------------
 
-def
+with/as
+--------------------
+
+async/await
+-------------
+
+async with/as
 ---------------
+
+global/nonlocal
+----------------------

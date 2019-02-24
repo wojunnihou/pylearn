@@ -35,7 +35,7 @@ ipython
             In [8]: %timeit range(10)
             277 ns ± 9.96 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
 
-        * ·_·执行上一条::
+        * "_"执行上一条::
 
             In [24]: 12+43
             Out[24]: 55

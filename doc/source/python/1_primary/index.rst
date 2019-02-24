@@ -14,5 +14,6 @@
    statements-control-flow
    note-docstring
    function
+   encode
    string
    keywords
