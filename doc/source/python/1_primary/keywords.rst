@@ -19,3 +19,6 @@ assert
 
 async/await
 -------------
+
+break
+-----------
