@@ -3,7 +3,7 @@
 
 * 正则
 * 装饰器
-* 异步async\await
+* 异步async/await
 * 迭代器
 * 并发
 * 网络
