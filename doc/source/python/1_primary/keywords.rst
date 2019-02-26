@@ -333,8 +333,49 @@ lambda
 class
 ----------
 
+    class是Python中定义类的关键字，类是抽象的模板，实例是根据类创建的具体的对象，每个对象拥有相同的方法，但是数据可能不同
+    让我们先来定义一个类：
+
+        >>> class Classmates():
+        ...   pass
+
+    再来创建一个实例，实例是通过 类名+（）实现的：
+
+        >>> part=Classmates()
+        >>> part
+        <__main__.Classmates object at 0x0000018433CEDB38>
+
+    可以看出实例BOB创建成功，内存地址是0x0000018433CEDB38
+
+    给实例变量绑定属性，例如给part绑定一个name属性：
+
+        >>> part.name='Bob'
+        >>> part.name
+        'Bob'
+
+    但是当实例变量有很多属性时，可以同时绑定多个属性：
+
+        >>> class Classmates():
+        ...   def __init__(self,name,age,score):
+        ...     self.name=name
+        ...     self.age=age
+        ...     self.score=score
+
+        >>> part=Classmates('Bob',24,85)
+        >>> part.name
+        'Bob'
+        >>> part.age
+        24
+        >>> part.score
+        85
+
+    和普通的函数相比，在类中定义的函数只有一点不同，就是第一个参数永远是实例变量self，并且，调用时，不用传递该参数。
+    除此之外，类的方法和普通函数没有什么区别，所以，你仍然可以用默认参数、可变参数、关键字参数和命名关键字参数
+
 from/import/as
 ------------------------------
+
+
 
 try/except/else/finally/raise
 -----------------------------------
