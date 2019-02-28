@@ -375,16 +375,75 @@ class
 from/import/as
 -------------------------------
 
+    form import和import都是数据导入的方法，但是他们的使用方法和作用都有所差别：
 
+    form import用来导入模块中指定的模块属性，语法是：
+    form module import name1[name2[,......nameN]]
+
+
+    而import是用来导入整个模块，语法为：
+    import module1[module2[,.....moduleN]]
+
+    form import 和import 都可以加as,有时候你导入的模块或是模块属性名称已经在你的程序中使用了, 或者你不想使用导入的名字。
+    可能是它太长不便输入什么的, 总之你不喜欢它。使用自己想要的名字替换模块的原始名称。一个普遍的解决方案是把模块赋值给
+    一个变量:
 
 try/except/else/finally/raise
 -----------------------------------
 
+    在代码运行中经常会有错误提示，在运行代码之前不知道代码是否会出错，一旦出错一级一级找错误也很麻烦，这样就可以在语句中
+    嵌入一个try语句
+
+    try必须和except同时使用：
+
+        >>> try:
+        ...     x=9/0
+        ...     print(x)
+        ... except ZeroDivisionError as e:
+        ...     print('false')
+        ... else:
+        ...     print('correct')
+        ... finally:
+        ...     print('end')
+
+    执行结果 ：
+
+        false
+        end
+
+    当我们认为某些代码可能会出错时，就可以用try来运行这段代码，如果执行出错，则后续代码不会继续执行，而是直接跳转至错误处理
+    代码，即except语句块，可以在except语句块后面加一个else，当没有错误发生时，会自动执行else语句，最后执行finally语句，不管
+    代码是否有误，finally都会被执行。
+
+
+
+
+
+
+
 assert
 ----------
 
+    assert断言是声明其布尔值必须为真的判定，如果发生异常就说明表达示为假，用来测试表达式，其返回值为假，就会触发异常。
+
+        >>> assert 4==4(布尔值为ture)
+        >>> assert 4==5(布尔值为false，触发异常反应)
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+        AssertionError
+
+    可以在assert后面添加异常参数，就是在断言表达式后添加字符串信息，用来解释断言并更好的知道是哪里出了问题，格式为：
+
+    assert 表达式 [, 参数]，例如：
+
+        >>> assert 4==5,'4不等于5'
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+        AssertionError: 4不等于5
+
 yield/yield from
 ------------------
+
 
 with/as
 --------------------
