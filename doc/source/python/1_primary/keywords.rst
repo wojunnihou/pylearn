@@ -415,11 +415,21 @@ try/except/else/finally/raise
     代码，即except语句块，可以在except语句块后面加一个else，当没有错误发生时，会自动执行else语句，最后执行finally语句，不管
     代码是否有误，finally都会被执行。
 
+    可以用raise手工出发一个异常，这样做程序不会因为异常终止，而是运行报错：
 
+        >>> def num(x,y):
+        ...     if y==0:
+        ...       raise ZeroDivisionError('除数为零')
+        ...     else:
+        ...       return x/y
+        ...
+        >>> num(6,0)
 
-
-
-
+执行结果：
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+          File "<stdin>", line 3, in num
+        ZeroDivisionError: 除数为零
 
 assert
 ----------
