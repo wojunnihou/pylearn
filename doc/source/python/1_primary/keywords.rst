@@ -471,10 +471,36 @@ yield/yield from
         'python'
 
 
+    为了让生成器（带yield函数），能简易的在其他函数中直接调用，就产生了yield from：
+
+        >>> def h2():
+        ...     yield from h()
+        ...
+        >>> h2()
+        <generator object h2 at 0x000002BA64D3C570>
+        >>> c=h2()
+        >>> next(c)
+        'hello'
+        >>> next(c)
+        'python'
+
+        yield from也可以这样用：
+
+        >>> def h3():
+        ...     yield from 'hello'
+        ...     yield from 'python'
+        ...
+        >>> d=h3()
+        >>> next(d)
+        'h'
+        >>> next(d)
+        'e'
 
 
 with/as
 --------------------
+
+
 
 async/await
 -------------
