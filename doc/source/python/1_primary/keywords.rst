@@ -456,6 +456,22 @@ assert
 yield/yield from
 ------------------
 
+    带有yield的语句是一个生成器：
+
+        >>> def h():
+        ...    yield'hello'
+        ...    yield'python'
+        ...
+        >>> h()
+        <generator object h at 0x000002BA64D3C570>
+        >>> b=h()
+        >>> next(b)
+        'hello'
+        >>> next(b)
+        'python'
+
+
+
 
 with/as
 --------------------
