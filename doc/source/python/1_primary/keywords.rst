@@ -425,11 +425,13 @@ try/except/else/finally/raise
         ...
         >>> num(6,0)
 
-执行结果：
+    执行结果：
         Traceback (most recent call last):
           File "<stdin>", line 1, in <module>
           File "<stdin>", line 3, in num
+
         ZeroDivisionError: 除数为零
+
 
 assert
 ----------
