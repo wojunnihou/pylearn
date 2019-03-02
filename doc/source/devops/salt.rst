@@ -126,7 +126,29 @@ salt运行指令
 target
 ------------
 
+    * 通过`minion id`方式::
 
+        salt 'minion1' test.ping
+
+    * 通过glob模式匹配::
+
+        salt 'minion*' test.ping
+
+    * 通过正则::
+
+        salt -E 'minion[0-9]' test.ping
+
+    * 通过明确的`minion id`列表::
+
+        salt -L 'minion1,minion2' test.ping
+
+    * 通过Grains::
+
+        salt -G 'os:Ubuntu' test.ping
+
+    * 通过多目标方式::
+
+        salt -C 'G@os:Ubuntu and minion* or S@192.168.50.*' test.ping
 
 salt命令
 ----------
