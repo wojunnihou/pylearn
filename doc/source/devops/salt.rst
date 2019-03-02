@@ -92,21 +92,16 @@ salt认证
 
         当keys被删除过后，可以通过重启加入到 `Unaccepted Keys`
 
+配置文件
+----------
+
+    /etc/salt/minion::
+
+        master:192.168.5.200  # 配置salt master地址
+        id: 201  # 配置本机minion的id
 
 salt运行指令
 --------------
-
-    执行salt命令::
-
-        salt '*' test.ping
-
-    执行shell命令(下面例子查看当前目录)::
-
-        salt '*' cmd.run 'pwd'
-
-
-salt命令
-----------
 
     salt命令通过python实现，其源码目录在salt工程目录的modules中,其命令使用方法如下图:
 
@@ -117,6 +112,30 @@ salt命令
         salt '*' user.add fred shell=/bash/bin
         salt '*' pkg.install pkgs=['bind9','bind9-docs','bind-utils']
         salt '*' pkg.install sources='[{"foo":"salt://foo.deb"},{"bar":"salt://bar.deb"}}'
+
+
+    执行salt命令::
+
+        salt '*' test.ping
+
+    执行shell命令(下面例子查看当前目录)::
+
+        salt '*' cmd.run 'pwd'
+
+
+target
+------------
+
+
+
+salt命令
+----------
+
+
+    查看模块文档::
+
+        salt '*' sys.doc
+        salt '*' sys.doc pkg.install
 
     查看连接状态::
 
@@ -130,6 +149,80 @@ salt命令
 
         salt '*' pkg.install tree
 
+    查看网卡::
+
+        salt '*' network.interfaces
+
+state
+--------
+
+    通过yaml格式编写执行逻辑,例子如下:
+
+    python function::
+
+        salt.states.user.present(name, uid=None, gid=None, gid_from_name=False,
+        groups=None, optional_groups=None, remove_groups=True, home=None,
+        createhome=True, password=None, hash_password=False, enforce_password=True,
+        empty_password=False, shell=None, unique=True, system=False, fullname=None,
+        roomnumber=None, workphone=None, homephone=None, loginclass=None, date=None,
+        mindays=None, maxdays=None, inactdays=None, warndays=None, expire=None,
+        win_homedrive=None, win_profile=None, win_logonscript=None,
+        win_description=None)
+
+    state格式编写::
+
+        a state example that calls user.present:
+          user.present:
+            - name: fred
+            - shell: /bin/zsh
+
+
+    如果参数是列表格式::
+
+        install bind packages:
+          pkg.installed:
+            - pkgs:
+              - bind9
+              - bind9-docs
+              - bind-utils
+
+    字典参数::
+
+        Install some packages using other sources:
+          pkg.installed:
+            - name: mypkgs
+            - sources:
+              - foo: salt://foo.deb
+              - bar: http://somesite.org/bar.deb
+
+常见问题
+--------------
+
+    1. 修改minion id步骤
+
+        * salt master上面删除对应id::
+
+             salt-key -d "id名称" -y
+
+        * 停止salt-minion服务，salt-minion上删除pki文件夹以及minion_id::
+
+             systemctl stop salt-minion
+             rm -rf /etc/salt/pki
+             rm -rf /etc/salt/minion_id
+
+        * 修改salt-minion配置文件id::
+
+            vi /etc/salt/minion
+
+                id:id名称
+
+        * 启动salt-minion::
+
+            systemctl start salt-minion
+
+        * salt master上面接受::
+
+            salt-key -a "id名称" -y
 
 
 
