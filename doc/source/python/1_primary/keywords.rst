@@ -184,6 +184,7 @@ for...in/else
     for...in是循环语句，依次把list的元素迭代出来进行重复计算：
 
     例如要计算1-100的和：
+
         >>> n=range(101)
         >>> b=0
         >>> for x in n:
@@ -191,6 +192,7 @@ for...in/else
         >>> print(b)
 
     输出
+
        5050
 
     for...in语句也可以同else子句同时使用，在for循环正常执行后，else子句里面的内容也会正常执行：
@@ -241,6 +243,7 @@ while/else
         >>> print(sum)
 
     输出
+
        2500
 
     while循环后面加else语句和for循环加else语句用法一样：在while循环正常执行后，else子句里面的内容也会正常执行
@@ -320,7 +323,6 @@ lambda
 ----------------------------
 
     lambda表达式通常是用来命名匿名函数。当函数很简单，重新定义一个函数很繁琐的时候可以使用lambda来定义，比如：
-
     求x的平方，用lambda可以表达为：
 
         >>> n=lambda x:x*x
@@ -328,6 +330,7 @@ lambda
         100
 
     用def函数来表达为：
+
         >>> def n(x):
         ...   return x*x
         ...
@@ -383,12 +386,14 @@ from/import/as
 
     form import和import都是数据导入的方法，但是他们的使用方法和作用都有所差别：
 
-    form import用来导入模块中指定的模块属性，语法是：
-    form module import name1[name2[,......nameN]]
+    form import用来导入模块中指定的模块属性，语法是::
+
+        form module import name1[name2[,......nameN]]
 
 
-    而import是用来导入整个模块，语法为：
-    import module1[module2[,.....moduleN]]
+    而import是用来导入整个模块，语法为::
+
+        import module1[module2[,.....moduleN]]
 
     form import 和import 都可以加as,有时候你导入的模块或是模块属性名称已经在你的程序中使用了, 或者你不想使用导入的名字。
     可能是它太长不便输入什么的, 总之你不喜欢它。使用自己想要的名字替换模块的原始名称。一个普遍的解决方案是把模块赋值给
@@ -480,7 +485,7 @@ yield/yield from
     为了让生成器（带yield函数），能简易的在其他函数中直接调用，就产生了yield from：
 
         >>> def h2():
-        ...     yield from h()
+        ...     yield from   h()
         ...
         >>> h2()
         <generator object h2 at 0x000002BA64D3C570>
@@ -490,7 +495,7 @@ yield/yield from
         >>> next(c)
         'python'
 
-        yield from也可以这样用：
+    yield from也可以这样用：
 
         >>> def h3():
         ...     yield from 'hello'
@@ -510,6 +515,7 @@ with/as
 
 async/await
 -------------
+
 
 async with/as
 ---------------
