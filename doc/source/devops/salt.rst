@@ -96,6 +96,40 @@ salt认证
 salt运行指令
 --------------
 
-    测试连通命令::
+    执行salt命令::
 
         salt '*' test.ping
+
+    执行shell命令(下面例子查看当前目录)::
+
+        salt '*' cmd.run 'pwd'
+
+
+salt命令
+----------
+
+    salt命令通过python实现，其源码目录在salt工程目录的modules中,其命令使用方法如下图:
+
+    .. image:: salt-cmd-syntax.png
+
+    其中参数可以通过位置参数、关键值参数两种方式传递例子如下::
+
+        salt '*' user.add fred shell=/bash/bin
+        salt '*' pkg.install pkgs=['bind9','bind9-docs','bind-utils']
+        salt '*' pkg.install sources='[{"foo":"salt://foo.deb"},{"bar":"salt://bar.deb"}}'
+
+    查看连接状态::
+
+        salt '*' test.ping
+
+    查看磁盘使用率::
+
+        salt '*' disk.usage
+
+    安装软件::
+
+        salt '*' pkg.install tree
+
+
+
+
