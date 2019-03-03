@@ -217,6 +217,63 @@ state
               - foo: salt://foo.deb
               - bar: http://somesite.org/bar.deb
 
+
+grains
+-------------
+
+    配置grains方法大概有以下三种
+
+    I. 通过修改minion配置文件
+
+        1. 修改配置文件 `salt minion`  配置文件(/etc/salt/minion),添加列入下面的内容::
+
+            grains:
+              roles:
+                - app
+                - redis
+              applications:
+                - shop
+                - auth
+
+        #. 重启 `salt minion` ::
+
+            systemctl restart salt-minion.service
+
+        #. 在 `salt master` 通过以下命令可以查看grains信息::
+
+            salt '*' grains.items
+            salt '*' grains.item roles
+            salt '*' grains.item roles applications
+
+    #. 通过修改grains文件方式
+
+        1. 修改配置文件 `salt minion`  配置文件(/etc/salt/grains),添加列入下面的内容::
+
+            database:
+              - shared1
+              - shared2
+        #. 在 `salt master` 刷新grains::
+
+            salt '*' saltutil.sync_grains
+
+        #. 在 `salt master` 通过以下命令可以查看grains信息::
+
+            salt '*' grains.item database
+
+    #. 通过python脚本扩展grains
+
+        1. 在 `salt master`  的 `_grains` 目录(/srv/salt/_grains)下创建脚本文件(/srv/salt/_grains/test_grains.py),内容如下:
+
+            .. literalinclude:: test_grains.py
+
+        #. 同步脚本文件到minion(/var/cache/salt/minion/extmods/grains)::
+
+            salt '*' saltutil.sync_grains
+
+        #. 在 `salt master` 通过以下命令可以查看grains信息::
+
+            salt '*' grains.item ipstr
+
 常见问题
 --------------
 
