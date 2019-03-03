@@ -163,6 +163,10 @@ salt命令
 
         salt '*' test.ping
 
+    输出一个字符串::
+
+        salt '*' test.echo 123
+
     查看磁盘使用率::
 
         salt '*' disk.usage
@@ -217,6 +221,33 @@ state
               - foo: salt://foo.deb
               - bar: http://somesite.org/bar.deb
 
+pillar
+------------
+
+    #. pillar默认配置路径(/srv/pillar)文件结构::
+
+        [22:40:12][root@localhost:/srv/pillar]# tree
+        .
+        ├── default.sls
+        └── top.sls
+
+    #. 刷新minion配置::
+
+        salt '*' saltutil.refresh_pillar
+
+    #. 查看pillar变量::
+
+        salt '*' pillar.get testecho
+
+    #. state中引用pillar参数::
+
+        testecho:
+          test.echo:
+            - name: {{pillar['testecho']}}
+
+    #. 命令行中使用pillar::
+
+        salt '*' state.sls techo pillar='{"testecho":"123"}'
 
 grains
 -------------
@@ -274,10 +305,95 @@ grains
 
             salt '*' grains.item ipstr
 
+salt常用目录文件注释
+------------------------
+
+    * /etc/salt/
+
+        `salt master` 和 `salt minion` 配置文件路径
+
+    * /etc/salt/master
+
+        `salt master` 配置文件
+
+    * /etc/salt/minion
+
+        `salt minion` 配置文件
+
+    * /etc/salt/grains
+
+        `salt minion` grains配置文件
+
+    * /etc/salt/pki/
+
+        salt 认证密钥存放路径
+
+    * /srv/salt/
+
+        `salt master` state/脚本等文件目录
+
+    * /srv/salt/_grains/
+
+        `salt master` 配置grains的python脚本文件存放路径
+
+    * /srv/pillar
+
+        `salt master` 默认放pillar配置信息文件夹，可以通过配置master(/etc/salt/master)文件修改路劲,如::
+
+            pillar_roots:
+                base:
+                  - /srv/salt/pillar
+
+    * /srv/pillar/top.sls
+
+        `salt master` pillar与minion匹配映射关系指定文件,如::
+
+            base:
+              '*':
+                - default
+
+    `salt master` 配置文件路径树形图::
+
+        [22:55:30][root@localhost:/etc/salt]# tree
+        .
+        ├── master
+        ├── minion
+        ├── minion.d
+        │   └── _schedule.conf
+        └── pki
+            ├── master
+            │   ├── master.pem
+            │   ├── master.pub
+            │   ├── minions
+            │   │   ├── 200
+            │   │   ├── 201
+            │   │   └── 202
+            │   ├── minions_autosign
+            │   ├── minions_denied
+            │   ├── minions_pre
+            │   └── minions_rejected
+            └── minion
+                ├── minion_master.pub
+                ├── minion.pem
+                └── minion.pub
+
+    `salt master` srv项目文件路径树形图::
+
+        [22:57:32][root@localhost:/srv]# tree
+        .
+        ├── pillar
+        │   ├── default.sls
+        │   └── top.sls
+        └── salt
+            ├── _grains
+            │   └── test_grains.py
+            ├── init.sls
+            └── techo.sls
+
 常见问题
 --------------
 
-    1. 修改minion id步骤
+    #. 修改minion id步骤
 
         * salt master上面删除对应id::
 
