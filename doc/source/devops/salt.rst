@@ -221,6 +221,15 @@ state
               - foo: salt://foo.deb
               - bar: http://somesite.org/bar.deb
 
+    state执行::
+
+        salt '*' state.sls  techo
+        salt '*' state.apply  techo
+
+    查看state执行顺序::
+
+         salt '200' state.show_sls techo
+
 pillar
 ------------
 
