@@ -1,0 +1,4 @@
+interface: 192.168.5.200
+#pillar_roots:
+#   base:
+#    - /srv/salt/pillar 
