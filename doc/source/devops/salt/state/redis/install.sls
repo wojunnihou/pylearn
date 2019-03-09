@@ -14,7 +14,10 @@ depend install:
       - libtool
       - autoconf
 
-make_redis:
+install_redis:
+  file.managed:
+  - name: /lib/systemd/system/redis.service
+  - source: salt://redis/redis.service
   cmd.run:
   - names:
      - rm -rf redis-4.0.12 /usr/src/redis
@@ -23,7 +26,11 @@ make_redis:
      - tar -zxf redis-4.0.12.tar.gz -C /usr/src/redis --strip-components=1
      - make -C /usr/src/redis
      - make -C /usr/src/redis install
+     - mkdir -p /etc/redis
+     - cp /usr/src/redis/redis.conf /etc/redis/redis.conf
      - rm -rf /usr/src/redis /usr/src/redis-4.0.12.tar.gz
+     - systemctl daemon-reload
+     - systemctl enable redis.service
   - cwd: /usr/src
   - shell: /bin/bash
   - require:

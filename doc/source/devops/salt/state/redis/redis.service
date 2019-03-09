@@ -1,0 +1,13 @@
+[Unit]
+Description=Redis
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/redis-server /etc/redis/redis.conf --daemonize yes
+ExecReload=/usr/local/bin/redis-server -s reload
+ExecStop=/usr/local/bin/redis-server -s stop
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
