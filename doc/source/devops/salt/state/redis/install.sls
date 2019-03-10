@@ -1,9 +1,4 @@
-redis src package:
-  file.managed:
-    - name: /usr/src/redis-4.0.12.tar.gz
-    - source: salt://redis/redis-4.0.12.tar.gz
-
-depend install:
+depend_install:
   pkg.installed:
     - names:
       - gcc-c++
@@ -14,24 +9,46 @@ depend install:
       - libtool
       - autoconf
 
-install_redis:
+redis_src_package:
   file.managed:
-  - name: /lib/systemd/system/redis.service
-  - source: salt://redis/redis.service
+    - name: /usr/src/redis-4.0.12.tar.gz
+    - source: salt://redis/redis-4.0.12.tar.gz
+
+redis_install:
+  file.managed:
+     - name: /etc/init.d/redis
+     - source: salt://redis/redis
+     - template: jinja
   cmd.run:
-  - names:
-     - rm -rf redis-4.0.12 /usr/src/redis
-     - cd /usr/src
-     - mkdir /usr/src/redis
-     - tar -zxf redis-4.0.12.tar.gz -C /usr/src/redis --strip-components=1
-     - make -C /usr/src/redis
-     - make -C /usr/src/redis install
-     - mkdir -p /etc/redis
-     - cp /usr/src/redis/redis.conf /etc/redis/redis.conf
-     - rm -rf /usr/src/redis /usr/src/redis-4.0.12.tar.gz
-     - systemctl daemon-reload
-     - systemctl enable redis.service
-  - cwd: /usr/src
-  - shell: /bin/bash
-  - require:
-    - file: redis src package
+    - names:
+      - chmod a+x /etc/init.d/redis
+      - mkdir -p /usr/src/redis /var/lib/redis/
+      - tar -zxf redis-4.0.12.tar.gz -C /usr/src/redis --strip-components=1
+      - make -C /usr/src/redis
+      - make -C /usr/src/redis install
+      - rm -rf /usr/src/redis /usr/src/redis/redis-4.0.12.tar.gz
+    - cwd: /usr/src
+    - require:
+       - file: redis_src_package
+
+/etc/redis/redis.conf:
+   file.managed:
+     - source: salt://redis/redis.conf
+     - template: jinja
+     - makedirs: true
+
+
+/lib/systemd/system/redis.service:
+    file.managed:
+      - source: salt://redis/redis.service
+    cmd.run:
+      - names:
+        - systemctl daemon-reload
+        - systemctl enable redis.service
+    service.running:
+      - name: redis
+      - enable: True
+      - reload: True
+      - init_delay: 1
+      - watch:
+        - file: /etc/redis/redis.conf

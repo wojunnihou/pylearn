@@ -1,0 +1,3 @@
+qa:
+  '*':
+    - redis/default

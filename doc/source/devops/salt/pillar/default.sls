@@ -1,1 +1,0 @@
-testecho: teststr

@@ -1,0 +1,4 @@
+dev:
+  '*':
+    - redis/default
+

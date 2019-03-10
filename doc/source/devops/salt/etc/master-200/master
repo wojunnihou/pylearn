@@ -1,4 +1,11 @@
 interface: 192.168.5.200
-#pillar_roots:
-#   base:
-#    - /srv/salt/pillar 
+pillar_roots:
+
+  dev:
+    - /srv/pillar/dev
+
+  qa:
+    - /srv/pillar/qa
+
+  prod:
+    - /srv/pillar/prod
