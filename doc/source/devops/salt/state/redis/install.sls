@@ -48,7 +48,5 @@ redis_install:
     service.running:
       - name: redis
       - enable: True
-      - reload: True
-      - init_delay: 1
       - watch:
         - file: /etc/redis/redis.conf
