@@ -1,5 +1,7 @@
 dev:
   '*':
     - user
-    - redis/default
+  'role:redis':
+    - match: grain
+    - redis/conf
 

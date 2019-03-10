@@ -1,3 +1,6 @@
 qa:
   '*':
-    - redis/default
+    - user
+  'role:redis':
+    - match: grain
+    - redis/conf

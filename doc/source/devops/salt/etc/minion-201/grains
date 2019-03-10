@@ -1,0 +1,4 @@
+role:
+  - redis
+  - redis-salve
+  - redis-salve1
