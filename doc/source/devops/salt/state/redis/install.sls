@@ -1,3 +1,17 @@
+redis_user:
+  group.present:
+    - name: redis
+    - gid: {{ pillar.get('redis_gid','1001')}}
+
+  user.present:
+    - name: redis
+    - fullname: redis
+    - shell: /sbin/nologin
+    - uid: {{ pillar.get('redis_uid','1001')}}
+    - groups:
+      - redis
+
+
 depend_install:
   pkg.installed:
     - names:
@@ -22,7 +36,8 @@ redis_install:
   cmd.run:
     - names:
       - chmod a+x /etc/init.d/redis
-      - mkdir -p /usr/src/redis /var/lib/redis/
+      - mkdir -p /usr/src/redis /var/redis/lib
+      - chown -R redis:redis /var/redis
       - tar -zxf redis-4.0.12.tar.gz -C /usr/src/redis --strip-components=1
       - make -C /usr/src/redis
       - make -C /usr/src/redis install

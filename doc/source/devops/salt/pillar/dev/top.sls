@@ -1,4 +1,5 @@
 dev:
   '*':
+    - user
     - redis/default
 

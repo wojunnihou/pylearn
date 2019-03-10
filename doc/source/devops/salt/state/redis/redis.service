@@ -4,6 +4,7 @@ After=network.target
 
 [Service]
 Type=forking
+User=redis
 ExecStart=/etc/init.d/redis start
 ExecReload=/etc/init.d/redis restart
 ExecStop=/etc/init.d/redis stop
