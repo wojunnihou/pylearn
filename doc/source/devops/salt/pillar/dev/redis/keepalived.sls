@@ -1,0 +1,9 @@
+#redis_kpl_router_id: 200
+#redis_kpl_state: MASTER
+redis_kpl_interface: eth0
+redis_kpl_virtual_router_id: 52
+#redis_kpl_priority: 100
+redis_kpl_advert_int: 1
+redis_kpl_auth_type: PASS
+redis_kpl_auth_pass: 123456
+redis_kpl_virtual_ipaddress: 192.168.5.180
