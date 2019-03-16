@@ -11,3 +11,8 @@ keepalived
     .. literalinclude:: keepalived-example.conf
         :language: text
 
+
+    开通vrrp策略::
+
+        iptables -I INPUT -p vrrp -j ACCEPT
+
