@@ -2,13 +2,10 @@
 
 elasticsearch_achive:
   file.managed:
-    - name: /usr/src/jdk-8u201-linux-x64.tar.gz
-    - source: salt://java/jdk-8u201-linux-x64.tar.gz
+    - name: /usr/src/jdk-8u201-linux-x64.rpm
+    - source: salt://java/jdk-8u201-linux-x64.rpm
   cmd.run:
     - names:
-      - mkdir -p /usr/local/java
-      - echo -e 'export JAVA_HOME=/usr/local/java\nexport JRE_HOME=${JAVA_HOME}/jre\nexport CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib\nexport PATH=${JAVA_HOME}/bin:$PATH' >> /etc/profile
-      - tar -zxf jdk-8u201-linux-x64.tar.gz -C /usr/local/java --strip-components=1
+      -  rpm -ivh  jdk-8u201-linux-x64.rpm
     - cwd: /usr/src
-    - unless: test -d /usr/local/java/bin
 

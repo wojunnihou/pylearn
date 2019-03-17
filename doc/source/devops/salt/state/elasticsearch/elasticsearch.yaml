@@ -1,7 +1,7 @@
 cluster.name: wayen
 node.name: {{ pillar.get('elasticsearch.node.name')}}
-path.data: /var/elasticsearch/data
-path.logs: /var/elasticsearch/logs
+path.data: /var/lib/elasticsearch
+path.logs: /var/log/elasticsearch
 bootstrap.memory_lock: false
 network.host: 0.0.0.0
 http.port: 9200
