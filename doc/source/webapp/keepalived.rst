@@ -14,5 +14,5 @@ keepalived
 
     开通vrrp策略::
 
-        iptables -I INPUT -p vrrp -j ACCEPT
-
+        firewall-cmd --direct --permanent --add-rule ipv4 filter INPUT 0 --in-interface eth0 --destination 224.0.0.18 --protocol vrrp -j ACCEPT
+        firewall-cmd --reload

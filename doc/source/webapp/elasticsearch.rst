@@ -10,5 +10,5 @@ elasticsearch
 
     开通防火墙策略::
 
-        iptables -I INPUT -p tcp -s 192.168.5.0/24 --dport 9200 -j ACCEPT
-        iptables-save > /etc/iptables
+        firewall-cmd --zone=public --add-port=9200/tcp --permanent
+        firewall-cmd --reload

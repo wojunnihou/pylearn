@@ -18,8 +18,8 @@ install
 
     防火墙策略开通::
 
-        iptables -I INPUT -p tcp -s  192.168.5.0/24 --dport 6379 -j ACCEPT
-
+        firewall-cmd --zone=public --add-port=6379/tcp --permanent
+        firewall-cmd --reload
 
 keepalived
 ------------
