@@ -2,3 +2,4 @@ role:
   - redis
   - redis-salve
   - redis-salve1
+  - elasticsearch201

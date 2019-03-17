@@ -14,3 +14,12 @@ dev:
   'role:redis-salve2':
     - match: grain
     - redis/keepalived-salve2
+  'role:elasticsearch200':
+    - match: grain
+    - elasticsearch/node200
+  'role:elasticsearch201':
+    - match: grain
+    - elasticsearch/node201
+  'role:elasticsearch202':
+    - match: grain
+    - elasticsearch/node202

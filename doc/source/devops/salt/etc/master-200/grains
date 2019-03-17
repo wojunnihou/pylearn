@@ -1,3 +1,4 @@
 role:
   - redis
   - redis-master
+  - elasticsearch200
