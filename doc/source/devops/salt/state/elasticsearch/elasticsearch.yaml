@@ -5,3 +5,5 @@ path.logs: /var/log/elasticsearch
 bootstrap.memory_lock: false
 network.host: 0.0.0.0
 http.port: 9200
+discovery.zen.ping.unicast.hosts: ["192.168.5.200","192.168.5.201","192.168.5.202"]
+discovery.zen.minimum_master_nodes: 2
