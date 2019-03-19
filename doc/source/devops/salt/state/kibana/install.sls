@@ -1,12 +1,12 @@
 #https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.6.2.rpm
 
-elasticsearch_achive:
+intall_kibana:
   file.managed:
-    - name: /usr/src/elasticsearch-6.6.2.rpm
-    - source: salt://elasticsearch/elasticsearch-6.6.2.rpm
+    - name: /usr/src/kibana-6.6.2-x86_64.rpm
+    - source: salt://kibana/kibana-6.6.2-x86_64.rpm
   cmd.run:
     - names:
-      - rpm -ivh elasticsearch-6.6.2.rpm
+      - rpm -ivh kibana-6.6.2-x86_64.rpm
 
     - cwd: /usr/src/
     - shell: /usr/bin/bash

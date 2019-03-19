@@ -8,7 +8,7 @@
 
    redis
    keepalived
-   elasticsearch
+   elk
 
 
 * django
