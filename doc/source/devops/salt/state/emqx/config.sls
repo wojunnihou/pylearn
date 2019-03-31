@@ -21,3 +21,4 @@ reload-service:
      - enable: True
      - watch:
        - file: /etc/emqx/emqx.conf
+       - file: /etc/emqx/plugins
