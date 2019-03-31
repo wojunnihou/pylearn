@@ -23,3 +23,12 @@ dev:
   'role:elasticsearch202':
     - match: grain
     - elasticsearch/node202
+  'role:node200':
+    - match: grain
+    - node200
+  'role:node201':
+    - match: grain
+    - node201
+  'role:node202':
+    - match: grain
+    - node202
