@@ -1,0 +1,5 @@
+role:
+  - redis
+  - redis-master
+  - elasticsearch200
+  - node200

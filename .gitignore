@@ -1,3 +1,5 @@
 venv/
 .idea/
 doc/build/
+**/*.tar.gz
+**/*.rpm

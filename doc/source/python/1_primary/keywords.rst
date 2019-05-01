@@ -184,6 +184,7 @@ for...in/else
     for...in是循环语句，依次把list的元素迭代出来进行重复计算：
 
     例如要计算1-100的和：
+
         >>> n=range(101)
         >>> b=0
         >>> for x in n:
@@ -191,6 +192,7 @@ for...in/else
         >>> print(b)
 
     输出
+
        5050
 
     for...in语句也可以同else子句同时使用，在for循环正常执行后，else子句里面的内容也会正常执行：
@@ -241,6 +243,7 @@ while/else
         >>> print(sum)
 
     输出
+
        2500
 
     while循环后面加else语句和for循环加else语句用法一样：在while循环正常执行后，else子句里面的内容也会正常执行
@@ -290,7 +293,13 @@ break/continue
 pass
 --------
 
-    pass是空语句，不做任何事情，常用作占位语句，是为了保持程序结构的完整性。
+    pass是空语句，不做任何事情，常用作占位语句，是为了保持程序结构的完整性。当要定义一个函数，但是暂时不知道怎么写，可以
+    pass来占位使程序可以不报错，可以正常运行:
+
+        >>> def n():
+        ...     pass
+
+
 
 def/return
 ---------------
@@ -314,7 +323,6 @@ lambda
 ----------------------------
 
     lambda表达式通常是用来命名匿名函数。当函数很简单，重新定义一个函数很繁琐的时候可以使用lambda来定义，比如：
-
     求x的平方，用lambda可以表达为：
 
         >>> n=lambda x:x*x
@@ -322,6 +330,7 @@ lambda
         100
 
     用def函数来表达为：
+
         >>> def n(x):
         ...   return x*x
         ...
@@ -375,22 +384,138 @@ class
 from/import/as
 -------------------------------
 
+    form import和import都是数据导入的方法，但是他们的使用方法和作用都有所差别：
 
+    form import用来导入模块中指定的模块属性，语法是::
+
+        form module import name1[name2[,......nameN]]
+
+
+    而import是用来导入整个模块，语法为::
+
+        import module1[module2[,.....moduleN]]
+
+    form import 和import 都可以加as,有时候你导入的模块或是模块属性名称已经在你的程序中使用了, 或者你不想使用导入的名字。
+    可能是它太长不便输入什么的, 总之你不喜欢它。使用自己想要的名字替换模块的原始名称。一个普遍的解决方案是把模块赋值给
+    一个变量:
 
 try/except/else/finally/raise
 -----------------------------------
 
+    在代码运行中经常会有错误提示，在运行代码之前不知道代码是否会出错，一旦出错一级一级找错误也很麻烦，这样就可以在语句中
+    嵌入一个try语句
+
+    try必须和except同时使用：
+
+        >>> try:
+        ...     x=9/0
+        ...     print(x)
+        ... except ZeroDivisionError as e:
+        ...     print('false')
+        ... else:
+        ...     print('correct')
+        ... finally:
+        ...     print('end')
+
+    执行结果 ：
+
+        false
+        end
+
+    当我们认为某些代码可能会出错时，就可以用try来运行这段代码，如果执行出错，则后续代码不会继续执行，而是直接跳转至错误处理
+    代码，即except语句块，可以在except语句块后面加一个else，当没有错误发生时，会自动执行else语句，最后执行finally语句，不管
+    代码是否有误，finally都会被执行。
+
+    可以用raise手工出发一个异常，这样做程序不会因为异常终止，而是运行报错：
+
+        >>> def num(x,y):
+        ...     if y==0:
+        ...       raise ZeroDivisionError('除数为零')
+        ...     else:
+        ...       return x/y
+        ...
+        >>> num(6,0)
+
+    执行结果：
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+          File "<stdin>", line 3, in num
+
+        ZeroDivisionError: 除数为零
+
+
 assert
 ----------
+
+    assert断言是声明其布尔值必须为真的判定，如果发生异常就说明表达示为假，用来测试表达式，其返回值为假，就会触发异常。
+
+        >>> assert 4==4(布尔值为ture)
+        >>> assert 4==5(布尔值为false，触发异常反应)
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+        AssertionError
+
+    可以在assert后面添加异常参数，就是在断言表达式后添加字符串信息，用来解释断言并更好的知道是哪里出了问题，格式为：
+
+    assert 表达式 [, 参数]，例如：
+
+        >>> assert 4==5,'4不等于5'
+        Traceback (most recent call last):
+          File "<stdin>", line 1, in <module>
+        AssertionError: 4不等于5
 
 yield/yield from
 ------------------
 
+    带有yield的语句是一个生成器：
+
+        >>> def h():
+        ...    yield'hello'
+        ...    yield'python'
+        ...
+        >>> h()
+        <generator object h at 0x000002BA64D3C570>
+        >>> b=h()
+        >>> next(b)
+        'hello'
+        >>> next(b)
+        'python'
+
+
+    为了让生成器（带yield函数），能简易的在其他函数中直接调用，就产生了yield from：
+
+        >>> def h2():
+        ...     yield from   h()
+        ...
+        >>> h2()
+        <generator object h2 at 0x000002BA64D3C570>
+        >>> c=h2()
+        >>> next(c)
+        'hello'
+        >>> next(c)
+        'python'
+
+    yield from也可以这样用：
+
+        >>> def h3():
+        ...     yield from 'hello'
+        ...     yield from 'python'
+        ...
+        >>> d=h3()
+        >>> next(d)
+        'h'
+        >>> next(d)
+        'e'
+
+
 with/as
 --------------------
 
+
+
 async/await
 -------------
+
 
 async with/as
 ---------------
