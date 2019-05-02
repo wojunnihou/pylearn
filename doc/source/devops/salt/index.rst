@@ -1,5 +1,5 @@
-salt
-=======
+salt自动部署
+=============
 
     多服务器管理软件,可以远程执行命令,开源地址:`源码 <https://github.com/saltstack/salt>`_
     `官网文档 <https://docs.saltstack.com/en/latest/>`_

@@ -1,12 +1,14 @@
-自动化运维
+运维
 ============
 
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Contents:
 
-   salt
+   salt/index
+   manual/index
+   
 
 
 * setup
