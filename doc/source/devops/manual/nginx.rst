@@ -27,4 +27,4 @@ nginx
 
     useradd -s /sbin/nologin -M nginx
     mkdir -p /var/tmp/nginx/client/
-    ln -s  /usr/local/nginx/sbin/nginx  /bin/nginx
+    ln -s  /usr/local/nginx/sbin/nginx  /usr/bin/nginx
