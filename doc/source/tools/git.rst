@@ -14,6 +14,7 @@ centos7 升级git
 
         curl -o enable-ius.sh -L https://raw.githubusercontent.com/iuscommunity/automation-examples/bash/enable-ius.sh
         sudo sh enable-ius.sh
+        rm -rf enable-ius.sh
 
     git编译环境::
 
@@ -28,8 +29,7 @@ centos7 升级git
         cd git-2.20.1
         make prefix=/usr/local/git all
         make prefix=/usr/local/git install
-        cd /usr/bin
-        ln -s  /usr/local/git/bin/git git
+        ln -s  /usr/local/git/bin/git /usr/bin/git
         git --version
 
 
