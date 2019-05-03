@@ -9,3 +9,4 @@
    python
    nginx
    openvpn
+   sqlite3
