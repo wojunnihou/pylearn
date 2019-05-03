@@ -23,7 +23,7 @@ centos7 升级git
     git源码下载安装::
 
         yum autoremove -y git
-        cd /usr/src
+        cd /usr/local/src
         wget https://www.kernel.org/pub/software/scm/git/git-2.20.1.tar.gz
         tar xzf git-2.20.1.tar.gz
         cd git-2.20.1

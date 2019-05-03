@@ -7,7 +7,6 @@
    :caption: Contents:
 
    sphinx
-   git
 
 .. 待规划
    * git

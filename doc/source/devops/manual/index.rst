@@ -10,3 +10,4 @@
    nginx
    openvpn
    sqlite3
+   git
