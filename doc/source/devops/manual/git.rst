@@ -27,9 +27,9 @@ centos7 升级git
         wget https://www.kernel.org/pub/software/scm/git/git-2.20.1.tar.gz
         tar xzf git-2.20.1.tar.gz
         cd git-2.20.1
-        make prefix=/usr/local/git all
-        make prefix=/usr/local/git install
-        ln -s  /usr/local/git/bin/git /usr/bin/git
+        ./configure
+        make all
+        make install
         git --version
 
 
