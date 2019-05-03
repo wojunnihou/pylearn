@@ -6,5 +6,6 @@
    :maxdepth: 1
    :caption: Contents:
 
+   python
    nginx
    openvpn
