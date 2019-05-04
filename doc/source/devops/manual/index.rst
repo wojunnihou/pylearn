@@ -11,3 +11,4 @@
    openvpn
    sqlite3
    git
+   postgres
