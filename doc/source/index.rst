@@ -26,25 +26,16 @@
    :caption: Contents:
 
    python/index
-   network/index
-   spider/index
    webapp/index
-   gui/index
-   ai/index
-   bigdata/index
-   iot/index
-   autotest/index
    devops/index
-   design/index
 
    tools/index
-   website-collection
 
 
 contribute
 ------------
 
-   写文档不是一蹴而就，需要一个过程，我尽量即用闲余时间逐步完善，并且也希望大家积极参与提交Pr。
+   写文档不是一蹴而就，需要一个过程，我尽量即用闲余时间逐步完善。
 
 Indices and tables
 ==================

@@ -1,6 +1,0 @@
-role:
-  - redis
-  - redis-salve
-  - redis-salve2
-  - elasticsearch202
-  - node202
