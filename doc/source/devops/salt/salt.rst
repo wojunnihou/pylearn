@@ -17,8 +17,7 @@ salt-master安装
 
         yum install -y git
         git clone https://github.com/wojunnihou/pylearn.git  /usr/local/src/pylearn
-        ln -s /usr/local/src/pylearn/doc/source/devops/salt/state/ /srv/state
-        ln -s /usr/local/src/pylearn/doc/source/devops/salt/pillar/ /srv/pillar
+        ln -s /usr/local/src/pylearn/doc/source/devops/salt/state/ /srv/salt
 
 salt-minion安装
 ------------------
