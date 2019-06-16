@@ -6,5 +6,6 @@
    :maxdepth: 2
    :caption: Contents:
 
+   centos
    salt/index
    manual/index
