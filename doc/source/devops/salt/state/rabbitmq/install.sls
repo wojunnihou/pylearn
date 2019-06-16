@@ -8,6 +8,7 @@ rabbitmq_install:
 
 rabbitmq_start:
     cmd.run:
+    -names:
       - firewall-cmd --zone=public --add-port=5672/tcp --permanent
       - firewall-cmd --zone=public --add-port=15672/tcp --permanent
       - firewall-cmd --reload
