@@ -7,4 +7,7 @@
    :maxdepth: 1
    :caption: Contents:
 
+   ps
    rpm
+   netstat
+
