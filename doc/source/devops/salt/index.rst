@@ -7,3 +7,8 @@ salt部署
 
    salt
    state/rabbitmq/index
+
+简述
+------------------
+
+    常用组件salt快捷安装
