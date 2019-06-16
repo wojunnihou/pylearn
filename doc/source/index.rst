@@ -28,6 +28,7 @@
    python/index
    webapp/index
    devops/index
+   cmd/index
 
    tools/index
 
