@@ -28,7 +28,7 @@ salt-minion安装
         curl -L https://bootstrap.saltstack.com -o install_salt.sh
         sudo sh install_salt.sh
         echo 'master: 192.168.5.200
-        id: 5.201'  > /etc/salt/minion
+        id: 5.202'  > /etc/salt/minion
         systemctl restart salt-minion.service
 
     salt-master接收::
