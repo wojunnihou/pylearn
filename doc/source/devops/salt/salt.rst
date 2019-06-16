@@ -9,7 +9,8 @@ salt-master安装
 
     命令::
 
-        yum install -y -q salt-master
+        curl -L https://bootstrap.saltstack.com -o install_salt.sh
+        sudo sh install_salt.sh -M
         echo 'interface: 0.0.0.0' > /etc/salt/master
         firewall-cmd --permanent --zone=public --add-port=4505-4506/tcp
         firewall-cmd --reload
@@ -24,7 +25,8 @@ salt-minion安装
 
     命令::
 
-        yum install -y -q salt-minion
+        curl -L https://bootstrap.saltstack.com -o install_salt.sh
+        sudo sh install_salt.sh
         echo 'master: 192.168.5.200
         id: 5.201'  > /etc/salt/minion
         systemctl restart salt-minion.service

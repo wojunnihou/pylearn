@@ -6,3 +6,4 @@ salt部署
    :caption: Contents:
 
    salt
+   state/rabbitmq/index
