@@ -5,4 +5,5 @@ salt部署
    :maxdepth: 2
    :caption: Contents:
 
+   centos
    salt
