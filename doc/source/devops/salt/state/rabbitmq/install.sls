@@ -4,6 +4,7 @@ rabbitmq_install:
       - curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash
       - curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash
       - yum install -y erlang rabbitmq-server
+      - rabbitmq-plugins enable rabbitmq_management
     - unless: test -f /usr/sbin/rabbitmq-server
 
 rabbitmq_start:
