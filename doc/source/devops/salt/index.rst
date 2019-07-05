@@ -7,6 +7,8 @@ salt部署
 
    salt
    state/rabbitmq/index
+   state/redis/index
+   state/k8s/index
 
 简述
 ------------------
